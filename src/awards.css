@@ -1,0 +1,55 @@
+#movieList {
+    height: 369px;
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.awardHolder {
+    border: #000 2px solid;
+    width: 15%;
+    background-color: #3d0000;
+    color: white;
+    text-align: center;
+}
+
+.awardHolder img {
+    max-height: 200px;
+    max-width: 100%;
+
+}
+
+.awardImgHolder {
+    width: 100%;
+    height: 202px;
+    border-bottom: #000 2px solid;
+}
+
+.withdrawButton {
+    padding: 8px;
+    color: #fff;
+    background-color: #c9351a;
+    border-bottom: #000 2px solid;
+    font-size: 0.9em;
+}
+
+.awardMovieInfo {
+    border-bottom: #000 2px solid;
+    height: 30%;
+}
+
+#awardsText {
+    text-align: center;
+    font-size: 3em;
+    padding: 50px;
+    color: #fff;
+}
+
+#awardLabel {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 2em;
+    color: #fff;
+}

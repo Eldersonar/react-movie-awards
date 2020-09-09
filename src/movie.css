@@ -1,0 +1,44 @@
+#movieList {
+    height: 369px;
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.movieHolder img {
+    max-height: 200px;
+    max-width: 100%;
+
+}
+
+.imgHolder {
+    width: 100%;
+    height: 202px;
+    border-bottom: #000 2px solid;
+}
+
+.nominateButton {
+    padding: 8px;
+    color: #fff;
+    background-color: #348100;
+    border-bottom: #000 2px solid;
+    font-size: 0.9em;
+}
+
+.movieHolder {
+    border: #000 2px solid;
+    width: 9%;
+    background-color: #3d0000;
+    color: white;
+    text-align: center;
+}
+
+.movieInfo {
+    border-bottom: #000 2px solid;
+    height: 30%;
+}
+
+.disabled {
+    background-color: #85927c !important;
+}
