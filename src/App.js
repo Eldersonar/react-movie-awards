@@ -27,14 +27,14 @@ export default class App extends React.Component {
   }
 
   async FetchMovies(MovieName) {
-    const url = `http://www.omdbapi.com/?s=${MovieName}&plot=full&apikey=d78f4d96`
+    const url = `https://www.omdbapi.com/?s=${MovieName}&plot=full&apikey=d78f4d96`
     const response = await fetch(url);
     const data = await response.json();
     this.setState({ movies: data.Search, loading: false, data: data.Search });
   }
 
   async componentDidMount() {
-    const url = `http://www.omdbapi.com/?s=${this.state.MovieName}&plot=full&apikey=d78f4d96`
+    const url = `https://www.omdbapi.com/?s=${this.state.MovieName}&plot=full&apikey=d78f4d96`
     const response = await fetch(url);
     const data = await response.json();
     this.setState({ movies: data.Search, loading: false, data: data.Search });
