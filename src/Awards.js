@@ -9,10 +9,9 @@ export default class Awards extends React.Component {
         this.LOCAL_STORAGE_KEY = 'awardsApp.movies'
 
         this.state = { movies: localStorage.getItem(this.LOCAL_STORAGE_KEY) };
-        this.movies = props.movies
+        this.movies = JSON.parse(this.state.movies)
 
-        console.log('=================')
-        console.log(this.movies)
+        // console.log(movies)
 
         console.log(this.props)
     }
