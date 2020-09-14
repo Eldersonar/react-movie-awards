@@ -26,6 +26,11 @@
     font-size: 0.9em;
 }
 
+.nominateButton:hover {
+    cursor: pointer;
+    background-color: #2a6800;
+}
+
 .movieHolder {
     border: #000 2px solid;
     width: 9%;
@@ -41,4 +46,8 @@
 
 .disabled {
     background-color: #85927c !important;
+    padding: 8px;
+    font-size: 0.9em;
+    border-bottom: #000 2px solid;
+
 }

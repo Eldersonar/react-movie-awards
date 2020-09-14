@@ -1,5 +1,5 @@
 import React from 'react';
-import Movie from './Movie';
+import Movie from './movie/Movie';
 
 // export default function Movies(handleSearch) {
 export default class Movies extends React.Component {
@@ -12,14 +12,10 @@ export default class Movies extends React.Component {
         };
     }
 
-    componentWillUnmount() {
-        this.props.SaveMovies(this.state.data)
-    }
-
     render() {
         if (this.props.movies) {
             return (
-                <Movie movies={this.props.movies} selectMovie={this.props.selectMovie} />
+                <Movie movies={this.props.movies} selectMovie={this.props.selectMovie} localStorageMovies={this.props.localStorageMovies} />
             );
         }
 
@@ -35,7 +31,7 @@ export default class Movies extends React.Component {
                 </div>
             )
         }
-        return <div>Couldn't get movies</div>;
+        return <div>Couldn't get movies</div>
 
     }
 }

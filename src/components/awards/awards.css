@@ -34,6 +34,11 @@
     font-size: 0.9em;
 }
 
+.withdrawButton:hover {
+    cursor: pointer;
+    background-color: #a12a15;
+}
+
 .awardMovieInfo {
     border-bottom: #000 2px solid;
     height: 30%;
