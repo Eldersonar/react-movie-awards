@@ -9,12 +9,15 @@ export default class Awards extends React.Component {
         this.deleteMovie = this.deleteMovie.bind(this)
     }
 
+    // Calls the funtion to delete a movie
     deleteMovie(e, movie) {
         e.stopPropagation()
         this.props.handleDeleteMovie(movie)
     }
 
     //doesn't pick up element styles. Does not show the log...
+
+    // Shows a happy banner when the number of awarded movies reaches 5
     showBanner() {
         // let banner = document.getElementsByClassName('overlay')[0]
         // console.log(banner.style)

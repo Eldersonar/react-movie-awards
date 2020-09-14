@@ -5,6 +5,8 @@ export default class Popup extends React.Component {
     // export default function popup() {
 
     // to be implemented
+
+    //Closes the banner and erases awarded movies
     closeBanner() {
         console.log('banner closed')
     }

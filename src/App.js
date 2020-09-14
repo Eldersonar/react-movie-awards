@@ -3,7 +3,7 @@ import './App.css';
 import Header from './components/header/header'
 import Main from './components/main/main'
 
-
+// Local storaage key
 const LOCAL_STORAGE_KEY = 'awardsApp.movies'
 
 export default class App extends React.Component {
@@ -12,8 +12,7 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       filtered: [],
-      MovieName: "man",
-      MovieArray: [],
+      movieName: "man",
       movies: [],
       loading: false,
       data: [],
@@ -26,21 +25,24 @@ export default class App extends React.Component {
     this.handleDeleteMovie = this.handleDeleteMovie.bind(this)
   }
 
-  async FetchMovies(MovieName) {
-    const url = `https://www.omdbapi.com/?s=${MovieName}&plot=full&apikey=d78f4d96`
+  // Fetches movies from OMDB API on demand
+  async FetchMovies(movieName) {
+    const url = `https://www.omdbapi.com/?s=${movieName}&plot=full&apikey=d78f4d96`
     const response = await fetch(url);
     const data = await response.json();
     this.setState({ movies: data.Search, loading: false, data: data.Search });
   }
 
+  // Fetches movies from OMDB API on initial page load
   async componentDidMount() {
-    const url = `https://www.omdbapi.com/?s=${this.state.MovieName}&plot=full&apikey=d78f4d96`
+    const url = `https://www.omdbapi.com/?s=${this.state.movieName}&plot=full&apikey=d78f4d96`
     const response = await fetch(url);
     const data = await response.json();
     console.log(data.Search)
     this.setState({ movies: data.Search, loading: false, data: data.Search });
   }
 
+  // Adds movie to the awarded list
   selectMovie(movie) {
     const movies = [...this.state.localStorageMovies, movie]
     this.setState({ localStorageMovies: movies, awarded: movies })
@@ -48,6 +50,8 @@ export default class App extends React.Component {
   }
 
   //Bug - awarded state won't update. Component uses the latest value on render
+
+  // Deletes a single movie from the awarded list
   handleDeleteMovie(movie) {
     console.log(movie)
     let filtered = this.state.localStorageMovies.filter(item => item.imdbID !== movie.imdbID);

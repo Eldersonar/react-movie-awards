@@ -9,12 +9,14 @@ export default class Header extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
+    // Gets the input search value
     handleSearch(e) {
         e.preventDefault();
         let movieName = document.getElementById('input').value
         this.props.FetchMovies(movieName);
     }
 
+    // Prevents form from submitting
     handleSubmit = (e) => {
         return false
     };
@@ -23,10 +25,13 @@ export default class Header extends React.Component {
         return (
             <header>
                 <h1>OMDB Movie Awards</h1>
-                <form id="inputWrapper" onSubmit={this.handleSubmit}>
-                    <input type="text" name="movieName" id="input" />
-                    <button id="searchBtn" onClick={this.handleSearch}>SEARCH</button>
-                </form>
+                <div id="inputWrapper">
+                    <form onSubmit={this.handleSubmit}>
+                        <input type="text" name="movieName" id="input" />
+                        <button id="searchBtn" onClick={this.handleSearch}>SEARCH</button>
+                    </form>
+                </div>
+
             </header>
         )
     }

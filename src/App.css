@@ -19,18 +19,24 @@ header input {
 }
 
 #searchBtn {
-  margin-top: -5px;
+  /* margin-top: -5px; */
   padding: 12px;
-  max-width: 10%;
-  height: 52px;
+  width: 10%;
+  height: 53px;
   color: #fff;
   background-color: #348100;
   border: none;
-  font-size: 2.9vh;
+  font-size: 1.7vw;
 }
 
 #inputWrapper {
   text-align: center;
+  border: #000 1px solid;
+}
+
+#inputWrapper form {
+  display: flex;
+  justify-content: center;
 }
 
 #awards {
