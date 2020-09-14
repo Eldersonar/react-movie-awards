@@ -1,3 +1,7 @@
+# Movie Awards App
+
+Movie award app allows the user to find movies from OMDB API and nominate them. The user can nominate up to 5 movies. The app utilizes React framework and JSX to deliver dynamic content.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
