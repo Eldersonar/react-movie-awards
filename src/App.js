@@ -17,7 +17,6 @@ export default class App extends React.Component {
       loading: false,
       data: [],
       awarded: JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) || "[]"),
-      localStorageMovies: JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) || "[]")
     }
 
     this.selectMovie = this.selectMovie.bind(this)
@@ -44,8 +43,8 @@ export default class App extends React.Component {
 
   // Adds movie to the awarded list
   selectMovie(movie) {
-    const movies = [...this.state.localStorageMovies, movie]
-    this.setState({ localStorageMovies: movies, awarded: movies })
+    const movies = [...this.state.awarded, movie]
+    this.setState({  awarded: movies })
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(movies));
   }
 
@@ -53,15 +52,10 @@ export default class App extends React.Component {
 
   // Deletes a single movie from the awarded list
   handleDeleteMovie(movie) {
-    console.log(movie)
-    let filtered = this.state.localStorageMovies.filter(item => item.imdbID !== movie.imdbID);
-    console.log(filtered)
+    let filtered = this.state.awarded.filter(item => item.imdbID !== movie.imdbID);
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(filtered));
     filtered = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
-    console.log(filtered)
-    console.log(this.state.awarded)
     this.setState({ awarded: filtered })
-    console.log(this.state.awarded)
   }
 
   render() {
