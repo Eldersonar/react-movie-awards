@@ -10,7 +10,6 @@ export default class Movies extends React.Component {
             movies: null,
             data: []
         };
-        console.log(props)
     }
 
     render() {

@@ -1,6 +1,5 @@
 import React from 'react'
 import './awards.css'
-import Popup from '../popup/popup'
 
 // export default function Awards() {
 export default class Awards extends React.Component {
@@ -14,8 +13,6 @@ export default class Awards extends React.Component {
         e.stopPropagation()
         this.props.handleDeleteMovie(movie)
     }
-
-    //doesn't pick up element styles. Does not show the log...
 
     // Shows a happy banner when the number of awarded movies reaches 5
     showBanner() {
@@ -49,7 +46,6 @@ export default class Awards extends React.Component {
                                 )
                             })}
                         </div>
-                        
                     </>
                 )
             }

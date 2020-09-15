@@ -2,29 +2,32 @@ import React from 'react'
 import './popup.css'
 
 export default class Popup extends React.Component {
-    // export default function popup() {
+    constructor(props) {
+        super(props);
+        this.state = { awarded: this.props.awarded };
+        console.log(props)
+        console.log(this.state.awarded)
 
-    // to be implemented
+    }
 
-    //Closes the banner and erases awarded movies
-    closeBanner() {
-        console.log('banner closed')
+    closeBanner(e) {
+        e.stopPropagation()
+        this.props.closeBanner()
     }
 
     render() {
         return (
             <div id="popup1" className="overlay">
                 <div className="popup">
-                    <h2>Here i am</h2>
-                    <a className="close" href="#">&times;</a>
+                    {/* <a className="close" href="#">&times;</a> */}
                     <div className="content">
-                        <p>Congratulations. You've nominated 5 movies.</p>
-                        <button onClick={this.closeBanner}>Try again</button>
+                        <p>Congratulations!</p>
+                        <p>You've nominated 5 movies.</p>
+
+                        <button onClick={(e) => this.closeBanner(e)}>OK</button>
                     </div>
                 </div>
             </div>
         )
     }
 }
-
-// export default Popup

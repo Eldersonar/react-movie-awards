@@ -23,6 +23,7 @@ export default class App extends React.Component {
     this.selectMovie = this.selectMovie.bind(this)
     this.FetchMovies = this.FetchMovies.bind(this)
     this.handleDeleteMovie = this.handleDeleteMovie.bind(this)
+    this.closeBanner = this.closeBanner.bind(this)
   }
 
   // Fetches movies from OMDB API on demand
@@ -38,21 +39,18 @@ export default class App extends React.Component {
     const url = `https://www.omdbapi.com/?s=${this.state.movieName}&plot=full&apikey=d78f4d96`
     const response = await fetch(url);
     const data = await response.json();
-    console.log(data.Search)
     this.setState({ movies: data.Search, loading: false, data: data.Search });
   }
 
   // Adds movie to the awarded list
   selectMovie(movie) {
-    if (this.state.awarded.find(item => item.imdbID == movie.imdbID))
+    if (this.state.awarded.find(item => item.imdbID === movie.imdbID))
       return
 
     const movies = [...this.state.awarded, movie]
-    this.setState({  awarded: movies })
+    this.setState({ awarded: movies })
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(movies));
   }
-
-  //Bug - awarded state won't update. Component uses the latest value on render
 
   // Deletes a single movie from the awarded list
   handleDeleteMovie(movie) {
@@ -62,11 +60,19 @@ export default class App extends React.Component {
     this.setState({ awarded: filtered })
   }
 
+  //Closes the banner and erases awarded movies
+  closeBanner() {
+    localStorage.setItem(LOCAL_STORAGE_KEY, []);
+    this.setState({ awarded: [] })
+    let banner = document.getElementsByClassName('overlay')[0]
+    banner.style.cssText = "visibility: hidden;opacity: 0;"
+  }
+
   render() {
     return (
       <div>
         <Header FetchMovies={this.FetchMovies} />
-        <Popup />
+        <Popup awarded={this.state.awarded} closeBanner={this.closeBanner} />
         <Main movies={this.state.movies}
           selectMovie={this.selectMovie}
           localStorageMovies={this.state.localStorageMovies}
