@@ -19,9 +19,10 @@ export default class Awards extends React.Component {
 
     // Shows a happy banner when the number of awarded movies reaches 5
     showBanner() {
-        // let banner = document.getElementsByClassName('overlay')[0]
-        // console.log(banner.style)
-        // banner.style.cssText = "visibility: visible;opacity: 1;"
+        let banner = document.getElementsByClassName('overlay')[0]
+        if (!banner)
+            return
+        banner.style.cssText = "visibility: visible;opacity: 1;"
         console.log('banner goes here')
     }
 
@@ -48,7 +49,7 @@ export default class Awards extends React.Component {
                                 )
                             })}
                         </div>
-                        <Popup />
+                        
                     </>
                 )
             }

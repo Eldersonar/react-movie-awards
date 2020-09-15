@@ -10,12 +10,13 @@ export default class Movies extends React.Component {
             movies: null,
             data: []
         };
+        console.log(props)
     }
 
     render() {
         if (this.props.movies) {
             return (
-                <Movie movies={this.props.movies} selectMovie={this.props.selectMovie} localStorageMovies={this.props.localStorageMovies} />
+                <Movie movies={this.props.movies} selectMovie={this.props.selectMovie} awarded={this.props.awarded} />
             );
         }
 

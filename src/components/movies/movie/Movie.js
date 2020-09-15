@@ -4,15 +4,20 @@ import './movie.css';
 class Movie extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { localStorageMovies: this.props.localStorageMovies };
+        this.state = { localStorageMovies: this.props.awarded };
+        console.log(props)
     }
 
     render() {
         // console.log(this.state.localStorageMovies.length)
+        
+
         if (this.props.movies) {
             return (
                 <div id="movieList">
                     {this.props.movies.map((movie) => {
+                        const alreadyAwarded = this.props.awarded.find(item => item.imdbID == movie.imdbID)
+                        const btnClass = alreadyAwarded ? 'disabled' : 'nominateButton'
                         return (
                             <div className="movieHolder" key={movie.imdbID}>
                                 <div className="imgHolder"  >
@@ -78,7 +83,8 @@ class Movie extends React.Component {
                                         }
                                     }
                                 })()} */}
-                                <div className="nominateButton" onClick={() => this.props.selectMovie(movie)}> NOMINATE </div>
+
+                                <div className={btnClass} onClick={() => this.props.selectMovie(movie)}> NOMINATE </div>
 
                             </div>
                         )

@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Header from './components/header/header'
 import Main from './components/main/main'
+import Popup from './components/popup/popup'
 
 // Local storaage key
 const LOCAL_STORAGE_KEY = 'awardsApp.movies'
@@ -43,6 +44,9 @@ export default class App extends React.Component {
 
   // Adds movie to the awarded list
   selectMovie(movie) {
+    if (this.state.awarded.find(item => item.imdbID == movie.imdbID))
+      return
+
     const movies = [...this.state.awarded, movie]
     this.setState({  awarded: movies })
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(movies));
@@ -62,6 +66,7 @@ export default class App extends React.Component {
     return (
       <div>
         <Header FetchMovies={this.FetchMovies} />
+        <Popup />
         <Main movies={this.state.movies}
           selectMovie={this.selectMovie}
           localStorageMovies={this.state.localStorageMovies}

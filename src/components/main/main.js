@@ -12,7 +12,7 @@ export default class Main extends React.Component {
         return (
             <main>
                 <div>
-                    <Movies movies={this.props.movies} selectMovie={this.props.selectMovie} localStorageMovies={this.props.localStorageMovies} />
+                    <Movies movies={this.props.movies} selectMovie={this.props.selectMovie} awarded={this.props.awarded} />
                 </div>
                 <div id="awards" >
                     <Awards handleDeleteMovie={this.props.handleDeleteMovie} awarded={this.props.awarded} />
